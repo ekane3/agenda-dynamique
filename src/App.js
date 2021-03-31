@@ -1,12 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text} from 'react-native';
+import Navigation from './Navigation';
 
 const App = () => {
-  return (
-    <View>
-      <Text>Texte</Text>
-    </View>
-  );
+  return <Navigation />;
 };
 
 export default App;
