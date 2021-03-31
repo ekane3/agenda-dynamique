@@ -1,4 +1,4 @@
-package com.mobile;
+package com.infolimo.agenda_dynamique;
 
 import com.facebook.react.ReactActivity;
 
@@ -11,6 +11,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "mobile";
+    return "AgendaDynamique";
   }
 }
