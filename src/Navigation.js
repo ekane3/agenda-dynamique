@@ -1,22 +1,19 @@
 import React from 'react';
-import {useColorScheme, useWindowDimensions, View, Text} from 'react-native';
+import {
+  useColorScheme,
+  useWindowDimensions,
+  ImageBackground,
+  Image,
+} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {Contact, EventDetails, Home, Map, Settings, Search} from './screens';
-import {DrawerItem} from './components';
+import {CustomDrawerContent} from './components';
 import * as Theme from './style/theme';
+import Poppins from './style/fonts';
 
-const {Navigator, Screen} = createDrawerNavigator(); // drawer navigator
-
-const CustomDrawerContent = props => {
-  const {navigation} = props;
-  console.log(props);
-  return (
-    <View>
-      <Text>Content</Text>
-    </View>
-  );
-};
+const {Navigator, Screen} = createDrawerNavigator();
 
 const DrawerNavigation = () => {
   const colorScheme = useColorScheme();
@@ -29,14 +26,51 @@ const DrawerNavigation = () => {
       <Navigator
         initialRouteName="Home"
         drawerType={isLargeScreen ? 'permanent' : 'back'}
-        drawerStyle={isLargeScreen ? null : {width: '100%'}}
-        overlayColor="transparent">
-        <Screen name="Home" component={Home} />
+        drawerStyle={{
+          width: isLargeScreen ? null : '100%',
+          backgroundColor: '#e8e8e8',
+        }}
+        drawerContentOptions={{
+          activeBackgroundColor: null,
+          labelStyle: {
+            fontFamily: Poppins.SemiBold,
+            fontSize: 20,
+          },
+        }}
+        drawerContent={props => (
+          <CustomDrawerContent
+            props={props}
+            colorScheme={colorScheme}
+            Theme={Theme}
+          />
+        )}>
+        <Screen
+          name="Home"
+          options={{
+            drawerLabel: 'Accueil',
+            drawerIcon: ({focused, color, size}) => (
+              <Icon name="rocket" size={size} color={color} />
+            ),
+          }}
+          component={Home}
+        />
         <Screen name="EventDetails" component={EventDetails} />
-        <Screen name="Map" component={Map} />
-        <Screen name="Contact" component={Contact} />
-        <Screen name="Search" component={Search} />
-        <Screen name="Settings" component={Settings} />
+        <Screen name="Map" options={{drawerLabel: 'Carte'}} component={Map} />
+        <Screen
+          name="Contact"
+          options={{drawerLabel: 'Contact'}}
+          component={Contact}
+        />
+        <Screen
+          name="Search"
+          options={{drawerLabel: 'Recherche'}}
+          component={Search}
+        />
+        <Screen
+          name="Settings"
+          options={{drawerLabel: 'Paramètres'}}
+          component={Settings}
+        />
       </Navigator>
     </NavigationContainer>
   );

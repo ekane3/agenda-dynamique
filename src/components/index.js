@@ -1,4 +1,4 @@
-import DrawerItem from './DrawerItem';
 import EventCard from './EventCard';
+import CustomDrawerContent from './CustomDrawerContent';
 
-export {DrawerItem, EventCard};
+export {CustomDrawerContent, EventCard};
