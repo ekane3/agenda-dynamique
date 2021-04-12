@@ -6,32 +6,26 @@ import {
 } from '@react-navigation/drawer';
 
 const CustomDrawerContent = ({props, colorScheme, Theme}) => {
-  console.debug(props);
+  console.log(colorScheme);
+  const {state, ...rest} = props;
+  const newState = {...state};
+  newState.routes = newState.routes.filter(
+    item => item.name !== 'EventDetails',
+  );
   return (
     <DrawerContentScrollView {...props}>
-      <View style={{width: '100%', height: 300}}>
-        <ImageBackground
-          resizeMode="cover"
-          source={require('../../assets/images/drawerBg.jpg')}
-          style={{
-            width: '100%',
-            height: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flex: 1,
-          }}
-          imageStyle={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-          }}>
-          <Image
-            style={{resizeMode: 'cover', height: 80, width: 80}}
-            source={require('../../assets/images/logo_sans_texte.png')}
-          />
-        </ImageBackground>
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginVertical: 30,
+        }}>
+        <Image
+          style={{resizeMode: 'contain', width: 250}}
+          source={require('../../assets/images/logo_avec_texte.png')}
+        />
       </View>
-      <DrawerItemList {...props} />
+      <DrawerItemList state={newState} {...rest} />
     </DrawerContentScrollView>
   );
 };
