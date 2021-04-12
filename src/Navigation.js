@@ -25,9 +25,9 @@ const DrawerNavigation = () => {
       backBehavior="none">
       <Navigator
         initialRouteName="Home"
-        drawerType={isLargeScreen ? 'permanent' : 'back'}
+        drawerType={isLargeScreen ? 'permanent' : 'slide'}
         drawerStyle={{
-          width: isLargeScreen ? null : '100%',
+          width: isLargeScreen ? null : '87%',
         }}
         drawerContentOptions={{
           activeBackgroundColor: null,
@@ -48,28 +48,62 @@ const DrawerNavigation = () => {
           options={{
             drawerLabel: 'Accueil',
             drawerIcon: ({focused, color, size}) => (
-              <Icon name="rocket" size={size} color={color} />
+              <Icon name="home" size={size} color={color} />
             ),
           }}
           component={Home}
         />
-        <Screen name="EventDetails" component={EventDetails} />
-        <Screen name="Map" options={{drawerLabel: 'Carte'}} component={Map} />
+       
+        <Screen 
+          name="Map" 
+          options={{
+            drawerLabel: 'Carte',
+            drawerIcon: ({focused, color, size}) => (
+              <Icon name="map" size={size} color={color} />
+            ),
+          }}
+          component={Map} 
+        />
         <Screen
           name="Contact"
-          options={{drawerLabel: 'Contact'}}
+          options={{
+            drawerLabel: 'Contact',
+            drawerIcon: ({focused, color, size}) => (
+              <Icon name="call" size={size} color={color} />
+            ),
+          }}
           component={Contact}
         />
         <Screen
           name="Search"
-          options={{drawerLabel: 'Recherche'}}
+          options={{
+            drawerLabel: 'Recherche',
+            drawerIcon: ({focused, color, size}) => (
+              <Icon name="search" size={size} color={color} />
+            ),
+          }}
           component={Search}
         />
         <Screen
           name="Settings"
-          options={{drawerLabel: 'Paramètres'}}
+          options={{
+            drawerLabel: 'Paramètres',
+            drawerIcon: ({focused, color, size}) => (
+              <Icon name="settings" size={size} color={color} />
+            ),
+          }}
           component={Settings}
         />
+         <Screen 
+          name="EventDetails" 
+          component={EventDetails} 
+          options={{
+            drawerLabel: 'Accueil',
+            drawerIcon: ({focused, color, size}) => (
+              <Icon name="home" size={size} color={color} />
+            ),
+          }}
+          />
       </Navigator>
     </NavigationContainer>
   );

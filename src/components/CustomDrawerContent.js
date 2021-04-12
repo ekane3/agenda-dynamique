@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ImageBackground, Image} from 'react-native';
+import {View, ImageBackground, Image,Text} from 'react-native';
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -18,7 +18,7 @@ const CustomDrawerContent = ({props, colorScheme, Theme}) => {
         style={{
           justifyContent: 'center',
           alignItems: 'center',
-          marginVertical: 30,
+          marginVertical: 35,
         }}>
         <Image
           style={{resizeMode: 'contain', width: 250}}
@@ -26,6 +26,14 @@ const CustomDrawerContent = ({props, colorScheme, Theme}) => {
         />
       </View>
       <DrawerItemList state={newState} {...rest} />
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: 235,
+      }}>
+        <Text>© Association Info Limousin 2021</Text>
+      </View>
     </DrawerContentScrollView>
   );
 };
