@@ -1,7 +1,7 @@
 export const Dark = {
   dark: true,
   colors: {
-    primary: '#EF3E36',
+    primary: '#EF3E36', // rouge
     background: '#111421',
     card: '#2a2b37',
     text: '#fdfdfd',
@@ -12,7 +12,7 @@ export const Dark = {
 
 export const Light = {
   dark: false,
-  colors: {
+  colors: {   
     primary: '#EF3E36', // rouge
     background: '#ffffff', // blanc
     card: '#e0e9f3', // gris
