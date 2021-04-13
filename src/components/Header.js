@@ -19,7 +19,7 @@ const Header = ({title, isDrawer, rightIcon}) => {
         />
       ) : (
         <Icon
-          name="arrow-back"
+          name="chevron-back"
           size={50}
           color={colors.primary}
           onPress={() => navigation.goBack()}
