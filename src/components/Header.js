@@ -34,11 +34,11 @@ const Header = ({title, isDrawer, rightIcon}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 10,
     marginHorizontal: 12,
+    marginBottom:10,
   },
   text: {
     fontFamily: Poppins.Bold,
