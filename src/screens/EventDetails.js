@@ -96,7 +96,7 @@ function EventDetails({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#f1f1f1",
     borderRadius: 20,
   },
   scrollview:{
