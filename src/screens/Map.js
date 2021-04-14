@@ -5,6 +5,7 @@ import Poppins from '../style/fonts';
 import Header from '../components/Header';
 import { useLinkTo,useTheme } from '@react-navigation/native';
 
+
 function Map({ navigation }) {
   const linkTo = useLinkTo();
   const {colors} = useTheme();
@@ -77,8 +78,6 @@ function Map({ navigation }) {
     
    
   </View>
-   
-    
   );
 }
 const styles = StyleSheet.create({
