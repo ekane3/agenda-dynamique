@@ -28,9 +28,10 @@ const DrawerNavigation = () => {
         drawerType={isLargeScreen ? 'permanent' : 'slide'}
         drawerStyle={{
           width: isLargeScreen ? null : '87%',
+          backgroundColor:'#fff'
         }}
         drawerContentOptions={{
-          activeBackgroundColor: null,
+          activeBackgroundColor:null,
           labelStyle: {
             fontFamily: Poppins.SemiBold,
             fontSize: 20,

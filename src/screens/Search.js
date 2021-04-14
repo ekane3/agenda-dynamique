@@ -24,12 +24,58 @@ function Search({ navigation }) {
           keyboardType="default"
           selectionColor={"#EF3E36"}
         />
-      <ScrollView style={styles.scrollHorizontal} horizontal>
+      <ScrollView style={styles.scrollHorizontal} showsHorizontalScrollIndicator={false} horizontal>
         <View style={styles.eventList} onPress={() => navigation.navigate('EventDetails')} >
-          <Text style={styles.textTitle}>Musique</Text>
+          <Image
+          style={styles.eventImage}
+          source={require('../../assets/images/musique.png')}
+          />
+          <Text style={styles.textTitleEvent}>Musique</Text>
+        </View>
+        <View style={styles.eventList} onPress={() => navigation.navigate('EventDetails')} >
+          <Image
+          style={styles.eventImage}
+          source={require('../../assets/images/musique.png')}
+          />
+          <Text style={styles.textTitleEvent}>Musée</Text>
+        </View>
+        <View style={styles.eventList} onPress={() => navigation.navigate('EventDetails')} >
+          <Image
+          style={styles.eventImage}
+          source={require('../../assets/images/musique.png')}
+          />
+          <Text style={styles.textTitleEvent}>Musique</Text>
+        </View>
+        <View style={styles.eventList} onPress={() => navigation.navigate('EventDetails')} >
+          <Image
+          style={styles.eventImage}
+          source={require('../../assets/images/musique.png')}
+          />
+          <Text style={styles.textTitleEvent}>Musique</Text>
+        </View>
+        <View style={styles.eventList} onPress={() => navigation.navigate('EventDetails')} >
+          <Image
+          style={styles.eventImage}
+          source={require('../../assets/images/musique.png')}
+          />
+          <Text style={styles.textTitleEvent}>Musique</Text>
+        </View>
+        <View style={styles.eventList} onPress={() => navigation.navigate('EventDetails')} >
+          <Image
+          style={styles.eventImage}
+          source={require('../../assets/images/musique.png')}
+          />
+          <Text style={styles.textTitleEvent}>Musique</Text>
+        </View>
+        <View style={styles.eventList} onPress={() => navigation.navigate('EventDetails')} >
+          <Image
+          style={styles.eventImage}
+          source={require('../../assets/images/musique.png')}
+          />
+          <Text style={styles.textTitleEvent}>Musique</Text>
         </View>
       </ScrollView>
-      <ScrollView style={styles.scrollview}>
+      <ScrollView style={styles.scrollview} showsVerticalScrollIndicator={false}>
         <Pressable style={styles.cardslist} onPress={() => navigation.navigate('EventDetails')} >
           <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
             <View style={{flexDirection: 'row',}}>
@@ -250,6 +296,7 @@ function Search({ navigation }) {
           </View>
         </View>
       </ScrollView>
+      
     </View>
     
    
@@ -265,11 +312,14 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   scrollview:{
-    padding: 20,   
+    paddingTop: 0,
+    paddingLeft: 20, 
+    paddingRight: 20, 
   },
   scrollHorizontal:{
-    marginHorizontal: 20,
-    marginBottom:40,
+    paddingLeft: 20, 
+    height:205,
+    
   },
   searchBar:{
     fontFamily: Poppins.Medium,
@@ -301,7 +351,13 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowOpacity: 1.0,
     elevation: 5,
-    height:100,
+    height:125,
+    justifyContent: 'center',
+    width:120,
+    marginRight:10 
+  },
+  eventImage:{
+    resizeMode: 'contain', width: 60,marginLeft: 8,
   },
   cardslist:{
     padding: 20,
@@ -321,6 +377,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     color: '#636869',
     justifyContent:'center',
+    marginTop: 7,
+  },
+  textTitleEvent: {
+    fontFamily: Poppins.Bold,
+    fontSize: 18,
+    color: '#636869',
     marginTop: 7,
   },
   textsubtitre:{

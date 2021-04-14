@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, StyleSheet,Button,ScrollView,Pressable,Image} from 'react-native';
+import React,{useState} from 'react';
+import {View, Text, StyleSheet,Button,ScrollView,Pressable,Image,TouchableOpacity,Switch} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Poppins from '../style/fonts';
 import Header from '../components/Header';
@@ -9,6 +9,8 @@ import Map from './Map'
 function Settings({ navigation }) {
   const linkTo = useLinkTo();
   const {colors} = useTheme();
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return (
   <View style={{flex:1}}>
@@ -16,73 +18,81 @@ function Settings({ navigation }) {
       isDrawer
       title={'Paramètres'}
       rightIcon={<Icon name="map-outline" size={40} color="#EF3E36" onPress={() => navigation.navigate('Map')}/>}
-
     />
     <View style={styles.container}>
       <ScrollView style={styles.scrollview}>
         <Text style={styles.textTitle}>Mes favoris</Text>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
             <View style={{marginLeft:10,marginTop:-5,}}>
-              <Text style={styles.textTitle}>Afficher les communes</Text>
+              <Text style={styles.textTitle2}>Afficher les communes</Text>
             </View>
-             <Icon
-                name="create"
-                size={25}
-                color={colors.primary}
+               <Switch
+                trackColor={{ false: colors.notification, true: colors.primary }}
+                thumbColor={isEnabled ? colors.background : colors.background}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={toggleSwitch}
+                value={isEnabled}
               />
           </View>
         </View>
         <Text style={styles.textTitle}>Choisir lieux</Text>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{marginLeft:10,marginTop:-5,}}>
+              <Text style={styles.textTitle2}>Tous les lieux</Text>
+            </View>
             <Icon
-                name="clipboard"
+                name="filter"
                 size={25}
                 color={colors.primary}
               />
-            <View style={{marginLeft:10,marginTop:-5,}}>
-              <Text style={styles.textTitle}>Déposer une annonce</Text>
-            </View>
           </View>
         </View>
         <Text style={styles.textTitle}>Définir thème</Text>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{marginLeft:10,marginTop:-5,}}>
+              <Text style={styles.textTitle2}>Choisissez un thème</Text>
+            </View>
             <Icon
-                name="location-sharp"
+                name="filter"
                 size={25}
                 color={colors.primary}
               />
-            <View style={{marginLeft:10,marginTop:-5,}}>
-              <Text style={styles.textTitle}>Besoin d'un accompagnement</Text>
-            </View>
           </View>
         </View>
         <Text style={styles.textTitle}>Une date</Text>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{marginLeft:10,marginTop:-5,}}>
+              <Text style={styles.textTitle2}>Selectionnez une date</Text>
+            </View>
             <Icon
-                name="bug"
+                name="calendar"
                 size={25}
                 color={colors.primary}
               />
-            <View style={{marginLeft:10,marginTop:-5,}}>
-              <Text style={styles.textTitle}>Reporter un bug</Text>
-            </View>
           </View>
         </View>
-        <View style={styles.cardslist}>
-           <View>
-            <Button
-              title="Sauvegarder"
-              onPress={() => Alert.alert('Simple Button pressed')}
-            />
-            <Button
-              title="Reinitialiser"
-              onPress={() => Alert.alert('Simple Button pressed')}
-            />
-            </View>
+         
+        <View style={{flexDirection:'column',marginVertical:20}}>
+            <TouchableOpacity style={styles.button} >
+              <Icon
+                name="add"
+                size={25}
+                color={colors.background}
+              />
+              <Text style={styles.buttonText}>Sauvegarder</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} >
+              <Icon
+                name="remove"
+                size={25}
+                color={colors.background}
+              />
+              <Text style={styles.buttonText}>Reinitialiser</Text>
+            </TouchableOpacity>
         </View>
          <View
         style={{
@@ -90,10 +100,6 @@ function Settings({ navigation }) {
           alignItems: 'center',
           marginVertical: 35,
         }}>
-        <Image
-          style={{resizeMode: 'contain', width: 250}}
-          source={require('../../assets/images/logo_avec_texte.png')}
-        />
       </View>
       </ScrollView>
     </View>
@@ -109,6 +115,24 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor: "#f1f1f1",
     borderRadius: 30,
+  },
+  button:{
+    borderRadius:30,
+    marginVertical:10,
+    paddingTop:10,
+    paddingBottom:10,
+    marginHorizontal:100,
+    backgroundColor:'#EF3E36',
+    elevation:3,
+    alignItems:'center',
+    flexDirection:'row',
+    justifyContent: 'center',
+  },
+  buttonText:{
+    fontFamily: Poppins.Regular,
+    color:'#FFFFFF',
+    fontSize:16,
+    marginLeft:10,
   },
   scrollview:{
     padding: 20,   
@@ -127,6 +151,14 @@ const styles = StyleSheet.create({
   },
   textTitle: {
     fontFamily: Poppins.Bold,
+    fontSize: 18,
+    alignItems: 'center',
+    color: '#636869',
+    justifyContent:'center',
+    marginTop: 7,
+  },
+   textTitle2: {
+    fontFamily: Poppins.Medium,
     fontSize: 18,
     alignItems: 'center',
     color: '#636869',

@@ -1,38 +1,221 @@
-<View style={{ marginBottom: 10, marginLeft: 5, marginRight: 5, borderRadius: 2, padding: 10 }} >
-                      <Card style={{ borderRadius: 8 }}>
-                        <CardItem header style={{ flexDirection: 'row', backgroundColor: '#fff', width: '100%', justifyContent: 'space-between', borderBottomColor: '#f1f1f1', borderBottomWidth: 1,borderRadius: 80 }}>
-                          <View style={{paddingTop:10 }}>
-                              <RegularText text={`${'Wallet Balance'}`} textColor='grey'style={{ fontWeight: 'bold', flexWrap: 'wrap',color:'grey' }} />
-                          </View>
+<ScrollView style={styles.scrollview}>
+        <Pressable style={styles.cardslist} onPress={() => navigation.navigate('EventDetails')} >
+          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{flexDirection: 'row',}}>
+              <Icon
+                name="location-sharp"
+                size={25}
+                color={colors.primary}
+              />
+              <View style={{marginLeft:10,marginTop:-10,}}>
+                <Text style={styles.textTitle}>Title(19)</Text>
+              </View>
+            </View>
+            <View style={{flexDirection: 'column',alignItems: 'flex-end',justifyContent: 'space-evenly'}}>
+              <Text style={{ fontFamily: Poppins.Bold,fontSize: 23,color: '#EF3E36'}}>29</Text>
+              <Text style={{ fontFamily: Poppins.Bold,fontSize: 23,color: '#636869',marginTop:-15}}>Mars</Text>
+            </View>
+          </View>
+          <Text numberOfLines={1} style={styles.textsubtitre}>SubTitle is a boooooooooooooooooooooooooooooooooooooooooooooooooooooo</Text>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between',marginLeft:5}}>
+            <View style={{marginRight:10,width:290}}>
+              <Text numberOfLines={5} style={styles.textdescrip}>
+                Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut  
+                dolore eu fugiat nulla pariatur. Excepteur sint 
+                occaecat cupidatat non proident, sunt in culpa 
+                qui officia deserunt mollit anim id est laborum.
+              </Text>
+            </View>
+            <View style={{flexDirection: 'column',width:30,alignItems: 'flex-end',justifyContent: 'space-around',}}>
+                <Icon
+                  name="call"
+                  size={30}
+                  color={colors.primary}
+                />
+                <Icon
+                  name="globe-sharp"
+                  size={30}
+                  color={colors.primary}
+                />
+            </View>
+          </View>
+        </Pressable>
 
-                            <View style = {{ width : wp('10%'),height: wp('10%'),backgroundColor : '#E091C9' ,borderRadius : hp('1%'), margin : 8,flexDirection :'row',justifyContent :'center',alignItems : 'center'}}>
-                           <SvgCss xml={WALLET} width={15} height={15} />
-                             </View>
+        <View style={styles.cardslist}>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{flexDirection: 'row',}}>
+              <Icon
+                name="location-sharp"
+                size={25}
+                color={colors.primary}
+              />
+              <View style={{marginLeft:10,marginTop:-10,}}>
+                <Text style={styles.textTitle}>Title(19)</Text>
+              </View>
+            </View>
+            <View style={{flexDirection: 'column',alignItems: 'flex-end',justifyContent: 'space-evenly'}}>
+              <Text style={{ fontFamily: Poppins.Bold,fontSize: 23,color: '#EF3E36'}}>19</Text>
+              <Text style={{ fontFamily: Poppins.Bold,fontSize: 23,color: '#636869',marginTop:-15}}>Décembre</Text>
+            </View>
+          </View>
+          <Text numberOfLines={1} style={styles.textsubtitre}>SubTitle is a boooooooooooooooooooooooooooooooooooooooooooooooooooooo</Text>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between',marginLeft:5}}>
+            <View style={{marginRight:10,width:290}}>
+              <Text numberOfLines={5} style={styles.textdescrip}>
+                Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut  
+                dolore eu fugiat nulla pariatur. Excepteur sint 
+                occaecat cupidatat non proident, sunt in culpa 
+                qui officia deserunt mollit anim id est laborum.
+              </Text>
+            </View>
+            <View style={{flexDirection: 'column',width:30,alignItems: 'flex-end',justifyContent: 'space-around',}}>
+                <Icon
+                  name="call"
+                  size={30}
+                  color={colors.primary}
+                />
+                <Icon
+                  name="globe-sharp"
+                  size={30}
+                  color={colors.primary}
+                />
+            </View>
+          </View>
+        </View>
 
-                            <View style={{
-                            flexDirection: 'column',
-                            height: 25, paddingRight: 10, paddingLeft: 10, paddingTop: 5,paddingBottom:30}}>
-                            <SmallText text={'MUR 110.00'} textColor='red' />
-                            <SmallText text={'Add Money'} textColor='blue' />
-                            </View>
+        <View style={styles.cardslist}>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{flexDirection: 'row',}}>
+              <Icon
+                name="location-sharp"
+                size={25}
+                color={colors.primary}
+              />
+              <View style={{marginLeft:10,marginTop:-10,}}>
+                <Text style={styles.textTitle}>Title(19)</Text>
+              </View>
+            </View>
+            <View style={{flexDirection: 'column',alignItems: 'flex-end',justifyContent: 'space-evenly'}}>
+              <Text style={{ fontFamily: Poppins.Bold,fontSize: 23,color: '#EF3E36'}}>19</Text>
+              <Text style={{ fontFamily: Poppins.Bold,fontSize: 23,color: '#636869',marginTop:-15}}>Décembre</Text>
+            </View>
+          </View>
+          <Text numberOfLines={1} style={styles.textsubtitre}>SubTitle is a boooooooooooooooooooooooooooooooooooooooooooooooooooooo</Text>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between',marginLeft:5}}>
+            <View style={{marginRight:10,width:290}}>
+              <Text numberOfLines={5} style={styles.textdescrip}>
+                Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut  
+                dolore eu fugiat nulla pariatur. Excepteur sint 
+                occaecat cupidatat non proident, sunt in culpa 
+                qui officia deserunt mollit anim id est laborum.
+              </Text>
+            </View>
+            <View style={{flexDirection: 'column',width:30,alignItems: 'flex-end',justifyContent: 'space-around',}}>
+                <Icon
+                  name="call"
+                  size={30}
+                  color={colors.primary}
+                />
+                <Icon
+                  name="globe-sharp"
+                  size={30}
+                  color={colors.primary}
+                />
+            </View>
+          </View>
+        </View>
 
-                        </CardItem>
-                        <View style = {{flexDirection : 'row',paddingLeft:24,paddingRight:24}}>
-                        {info.tecnologies.map(
-                          (data, index) => {
-                              return (
-                                <View>
-                                  <View style = {{width : wp('14%'),height: wp('14%'),backgroundColor : 'rgb(163, 153, 233)',borderRadius : hp('2%'), margin : 10,flexDirection :'row',justifyContent :'center',alignItems : 'center'}}>
-                                <SvgCss xml={PAY_BILL} width={15} height={15} />
-                                  </View>
-                                  <View style={{paddingLeft:15,paddingBottom:15}}>
-                                  <SmallText text={'Pay Bill'} textColor='grey' />
+        <View style={styles.cardslist}>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{flexDirection: 'row',}}>
+              <Icon
+                name="location-sharp"
+                size={25}
+                color={colors.primary}
+              />
+              <View style={{marginLeft:10,marginTop:-10,}}>
+                <Text style={styles.textTitle}>Title(19)</Text>
+              </View>
+            </View>
+            <View style={{flexDirection: 'column',alignItems: 'flex-end',justifyContent: 'space-evenly'}}>
+              <Text style={{ fontFamily: Poppins.Bold,fontSize: 23,color: '#EF3E36'}}>19</Text>
+              <Text style={{ fontFamily: Poppins.Bold,fontSize: 23,color: '#636869',marginTop:-15}}>Décembre</Text>
+            </View>
+          </View>
+          <Text numberOfLines={1} style={styles.textsubtitre}>SubTitle is a boooooooooooooooooooooooooooooooooooooooooooooooooooooo</Text>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between',marginLeft:5}}>
+            <View style={{marginRight:10,width:290}}>
+              <Text numberOfLines={5} style={styles.textdescrip}>
+                Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut  
+                dolore eu fugiat nulla pariatur. Excepteur sint 
+                occaecat cupidatat non proident, sunt in culpa 
+                qui officia deserunt mollit anim id est laborum.
+              </Text>
+            </View>
+            <View style={{flexDirection: 'column',width:30,alignItems: 'flex-end',justifyContent: 'space-around',}}>
+                <Icon
+                  name="call"
+                  size={30}
+                  color={colors.primary}
+                />
+                <Icon
+                  name="globe-sharp"
+                  size={30}
+                  color={colors.primary}
+                />
+            </View>
+          </View>
+        </View>
 
-                                  </View>
-                                </View>
-                              )
-                          }
-                      )}
-                      </View>
-                      </Card>
-                    </View>
+        <View style={styles.cardslist}>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{flexDirection: 'row',}}>
+              <Icon
+                name="location-sharp"
+                size={25}
+                color={colors.primary}
+              />
+              <View style={{marginLeft:10,marginTop:-10,}}>
+                <Text style={styles.textTitle}>Title(19)</Text>
+              </View>
+            </View>
+            <View style={{flexDirection: 'column',alignItems: 'flex-end',justifyContent: 'space-evenly'}}>
+              <Text style={{ fontFamily: Poppins.Bold,fontSize: 23,color: '#EF3E36'}}>19</Text>
+              <Text style={{ fontFamily: Poppins.Bold,fontSize: 23,color: '#636869',marginTop:-15}}>Décembre</Text>
+            </View>
+          </View>
+          <Text numberOfLines={1} style={styles.textsubtitre}>SubTitle is a boooooooooooooooooooooooooooooooooooooooooooooooooooooo</Text>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between',marginLeft:5}}>
+            <View style={{marginRight:10,width:290}}>
+              <Text numberOfLines={5} style={styles.textdescrip}>
+                Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut  
+                dolore eu fugiat nulla pariatur. Excepteur sint 
+                occaecat cupidatat non proident, sunt in culpa 
+                qui officia deserunt mollit anim id est laborum.
+              </Text>
+            </View>
+            <View style={{flexDirection: 'column',width:30,alignItems: 'flex-end',justifyContent: 'space-around',}}>
+                <Icon
+                  name="call"
+                  size={30}
+                  color={colors.primary}
+                />
+                <Icon
+                  name="globe-sharp"
+                  size={30}
+                  color={colors.primary}
+                />
+            </View>
+          </View>
+        </View>
+      </ScrollView>
