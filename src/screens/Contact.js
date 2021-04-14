@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet,Button,ScrollView,Pressable} from 'react-native';
+import {View, Text, StyleSheet,Button,ScrollView,Pressable,Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Poppins from '../style/fonts';
 import Header from '../components/Header';
@@ -21,49 +21,49 @@ function Contact({ navigation }) {
     <View style={styles.container}>
       <ScrollView style={styles.scrollview}>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'space-evenly'}}>
+          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
             <Icon
-                name="location-sharp"
+                name="create"
                 size={25}
                 color={colors.primary}
               />
-            <View style={{marginLeft:10,marginTop:-10,}}>
+            <View style={{marginLeft:10,marginTop:-5,}}>
               <Text style={styles.textTitle}>Créer un compte de diffusion</Text>
             </View>
           </View>
         </View>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'space-evenly'}}>
+          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
             <Icon
-                name="pencil"
+                name="clipboard"
                 size={25}
                 color={colors.primary}
               />
-            <View style={{marginLeft:10,marginTop:-10,}}>
+            <View style={{marginLeft:10,marginTop:-5,}}>
               <Text style={styles.textTitle}>Déposer une annonce</Text>
             </View>
           </View>
         </View>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'space-evenly'}}>
+          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
             <Icon
                 name="location-sharp"
                 size={25}
                 color={colors.primary}
               />
-            <View style={{marginLeft:10,marginTop:-10,}}>
+            <View style={{marginLeft:10,marginTop:-5,}}>
               <Text style={styles.textTitle}>Besoin d'un accompagnement</Text>
             </View>
           </View>
         </View>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'space-evenly'}}>
+          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
             <Icon
                 name="bug"
                 size={25}
                 color={colors.primary}
               />
-            <View style={{marginLeft:10,marginTop:-10,}}>
+            <View style={{marginLeft:10,marginTop:-5,}}>
               <Text style={styles.textTitle}>Reporter un bug</Text>
             </View>
           </View>
@@ -87,6 +87,17 @@ function Contact({ navigation }) {
               </Text>
             </View>
         </View>
+         <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginVertical: 35,
+        }}>
+        <Image
+          style={{resizeMode: 'contain', width: 250}}
+          source={require('../../assets/images/logo_avec_texte.png')}
+        />
+      </View>
       </ScrollView>
     </View>
     
