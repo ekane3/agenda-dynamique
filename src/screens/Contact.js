@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet,Button,ScrollView,Pressable,Image} from 'react-native';
+import {View, Text, StyleSheet,Button,ScrollView,Pressable,Image,Linking} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Poppins from '../style/fonts';
 import Header from '../components/Header';
@@ -9,7 +9,7 @@ import Map from './Map'
 function Contact({ navigation }) {
   const linkTo = useLinkTo();
   const {colors} = useTheme();
-
+  
   return (
   <View style={{flex:1}}>
     <Header
@@ -21,7 +21,7 @@ function Contact({ navigation }) {
     <View style={styles.container}>
       <ScrollView style={styles.scrollview}>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
+          <Pressable style={{flexDirection: 'row',justifyContent: 'flex-start'}} onPress={() => Linking.openURL('https://www.asso.info-limousin.com/association/adhesion')}>
             <Icon
                 name="create"
                 size={25}
@@ -30,10 +30,10 @@ function Contact({ navigation }) {
             <View style={{marginLeft:10,marginTop:-5,}}>
               <Text style={styles.textTitle}>Créer un compte de diffusion</Text>
             </View>
-          </View>
+          </Pressable>
         </View>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
+          <Pressable style={{flexDirection: 'row',justifyContent: 'flex-start'}} onPress={() => Linking.openURL('https://agenda-dynamique.com/adminf06132cd42effe0dcc1e256f3e7096b5d01fad08/evenement/event-form.php')}>
             <Icon
                 name="clipboard"
                 size={25}
@@ -42,10 +42,10 @@ function Contact({ navigation }) {
             <View style={{marginLeft:10,marginTop:-5,}}>
               <Text style={styles.textTitle}>Déposer une annonce</Text>
             </View>
-          </View>
+          </Pressable>
         </View>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
+          <Pressable style={{flexDirection: 'row',justifyContent: 'flex-start'}} onPress={() => Linking.openURL('mailto:contact@info-limousin.com?subject=Besoin d\'un accompagnement')}>
             <Icon
                 name="location-sharp"
                 size={25}
@@ -54,10 +54,10 @@ function Contact({ navigation }) {
             <View style={{marginLeft:10,marginTop:-5,}}>
               <Text style={styles.textTitle}>Besoin d'un accompagnement</Text>
             </View>
-          </View>
+          </Pressable>
         </View>
         <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'flex-start'}}>
+          <Pressable style={{flexDirection: 'row',justifyContent: 'flex-start'}} onPress={() => Linking.openURL('mailto:contact@info-limousin.com?subject=Bug application mobile')}>
             <Icon
                 name="bug"
                 size={25}
@@ -66,24 +66,18 @@ function Contact({ navigation }) {
             <View style={{marginLeft:10,marginTop:-5,}}>
               <Text style={styles.textTitle}>Reporter un bug</Text>
             </View>
-          </View>
+          </Pressable>
         </View>
         <View style={styles.cardslist}>
            <View>
               <Text numberOfLines={20} style={styles.textdescrip}>
-                Lorem ipsum dolor sit amet, consectetur 
-                adipiscing elit, sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut  
-                dolore eu fugiat nulla pariatur. Excepteur sint 
-                occaecat cupidatat non proident, sunt in culpa 
-                qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet, consectetur 
-                adipiscing elit, sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut  
-                dolore eu fugiat nulla pariatur. Excepteur sint 
-                occaecat cupidatat non proident, sunt in culpa 
-                qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet, consectetur 
+                L'association Info Limousin relaie 
+                sur internet les informations annonçant des 
+                evènements sur tout le Limousin, et l'Aquitaine.
+                Les adhérents saisissent en ligne leurs agendas
+                , l'association les optimise et les diffuse.Elle genère 
+                de nombreux flux d'inforamtions en usage libre, utilisés 
+                sur de nombreux sites internet et outils de flux.
               </Text>
             </View>
         </View>
@@ -148,7 +142,7 @@ const styles = StyleSheet.create({
   
   },
   textdescrip:{
-    fontSize:12,
+    fontSize:15,
     color:'#636869',
     marginLeft:5,
     marginBottom:10,

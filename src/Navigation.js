@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  useColorScheme,
-  useWindowDimensions,
-  ImageBackground,
-  Image,
-} from 'react-native';
+import { useColorScheme, useWindowDimensions, ImageBackground, Image } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -66,16 +61,6 @@ const DrawerNavigation = () => {
           component={Map} 
         />
         <Screen
-          name="Contact"
-          options={{
-            drawerLabel: 'Contact',
-            drawerIcon: ({focused, color, size}) => (
-              <Icon name="call" size={size} color={color} />
-            ),
-          }}
-          component={Contact}
-        />
-        <Screen
           name="Search"
           options={{
             drawerLabel: 'Recherche',
@@ -84,6 +69,16 @@ const DrawerNavigation = () => {
             ),
           }}
           component={Search}
+        />
+        <Screen
+          name="Contact"
+          options={{
+            drawerLabel: 'Contact',
+            drawerIcon: ({focused, color, size}) => (
+              <Icon name="call" size={size} color={color} />
+            ),
+          }}
+          component={Contact}
         />
         <Screen
           name="Settings"
