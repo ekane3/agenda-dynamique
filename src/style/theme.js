@@ -27,6 +27,6 @@ export const Light = {
     headerTitle:'#636869' ,
     shadowColor:'#000000' ,
     containerbgColor:'#f2f2f2',
-    searchBar:'#f2f2f2',
+    searchBar:'#fff',
   },
 };
