@@ -23,6 +23,10 @@ const styles = () => {
     scrollview: {
       padding: 20,
     },
+    scrollHorizontal:{
+      paddingLeft: 20,
+      height: 205,
+    },
     searchBar: {
       fontFamily: Poppins.Medium,
       fontSize: 15,
@@ -54,6 +58,33 @@ const styles = () => {
       height: responsiveScreenHeight(25),
       width: responsiveScreenWidth(90),
     },
+    eventList:{
+      padding: 20,
+      flexDirection: 'column',
+      marginVertical:15,
+      backgroundColor: colors.background,
+      borderRadius: 20,
+      borderColor:'#EF3E36',
+      shadowColor: colors.shadowColor,
+      shadowOffset: { width: 0, height: 10 },
+      shadowRadius: 10,
+      shadowOpacity: 1.0,
+      elevation: 5,
+      height:125,
+      justifyContent: 'center',
+      width:120,
+      marginRight:10 
+    },
+    eventImage:{
+      resizeMode: 'contain', width: 60,marginLeft: 8,
+    },
+    textTitleEvent: {
+      fontFamily: Poppins.Bold,
+      fontSize: 18,
+      color: '#636869',
+      marginTop: 7,
+    },
+  
     textTitle: {
       fontFamily: Poppins.Bold,
       fontSize: 23,
@@ -67,7 +98,7 @@ const styles = () => {
       fontSize: 16,
       alignItems: 'center',
       color: colors.notification,
-      width: responsiveScreenWidth(200),
+      width: responsiveScreenWidth(40),
       justifyContent: 'center',
       marginTop: -30,
       marginLeft: 5,

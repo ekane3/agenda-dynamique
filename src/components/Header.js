@@ -3,10 +3,12 @@ import {Text, View, StyleSheet} from 'react-native';
 import {useNavigation,useTheme} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Poppins from '../style/fonts';
+import style from '../style/Header';
 
 const Header = ({title, isDrawer, rightIcon}) => {
   const navigation = useNavigation();
   const {colors} = useTheme();
+  const styles = style();
   console.log(navigation.toggleDrawer ? true : false)
   
   return (
@@ -32,21 +34,5 @@ const Header = ({title, isDrawer, rightIcon}) => {
     
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 10,
-    marginHorizontal: 12,
-    marginBottom:10,
-  },
-  text: {
-    fontFamily: Poppins.Bold,
-    fontSize: 23,
-    marginVertical: 10,
-    color: '#636869',
-  },
-});
 
 export default Header;

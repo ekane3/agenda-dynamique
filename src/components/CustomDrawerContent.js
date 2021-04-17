@@ -4,9 +4,11 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
+import {useTheme} from '@react-navigation/native';
 
 const CustomDrawerContent = ({props, colorScheme, Theme}) => {
   console.log(colorScheme);
+  const {colors} = useTheme();
   const {state, ...rest} = props;
   const newState = {...state};
   newState.routes = newState.routes.filter(
@@ -28,11 +30,11 @@ const CustomDrawerContent = ({props, colorScheme, Theme}) => {
       <DrawerItemList state={newState} {...rest} />
       <View
         style={{
-          justifyContent: 'center',
+          justifyContent: 'flex-end',
           alignItems: 'center',
-          marginTop: 235,
+          marginTop:200,
       }}>
-        <Text>© Association Info Limousin 2021</Text>
+        <Text style={{ color: colors.notification }}>© Association Info Limousin 2021</Text>
       </View>
     </DrawerContentScrollView>
   );

@@ -14,9 +14,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Poppins from '../style/fonts';
 import Header from '../components/Header';
 import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+  responsiveScreenWidth,
+  responsiveScreenHeight,
+  responsiveScreenFontSize
+} from "react-native-responsive-dimensions";
 import {useLinkTo, useTheme} from '@react-navigation/native';
 import Map from './Map';
 import style from '../style/Home';
@@ -30,7 +31,7 @@ function Home({navigation}) {
   console.log(data);
   useEffect(() => {
     fetch(
-      'https://www.externe.agenda-dynamique.com/externe/flux.php?type=0&npp=1',
+      'https://www.externe.agenda-dynamique.com/externe/flux.presponsiveScreenHeight?type=0&npp=1',
     )
       .then(response => response.json())
       .then(json => setData(json))
@@ -47,7 +48,7 @@ function Home({navigation}) {
           <Icon
             name="map-outline"
             size={40}
-            color="#EF3E36"
+            color={colors.primary}
             onPress={() => navigation.navigate('Map')}
           />
         }
@@ -57,7 +58,7 @@ function Home({navigation}) {
           style={styles.searchBar}
           placeholder="Recherche"
           keyboardType="default"
-          selectionColor={'#EF3E36'}
+          selectionColor={colors.primary}
         />
         <ScrollView style={styles.scrollview}>
           <View style={{flex: 1, padding: 24}}>
@@ -117,7 +118,7 @@ function Home({navigation}) {
                             color={colors.primary}
                           />
                           <View style={{marginLeft: 10, marginTop: -10}}>
-                            <Text style={styles.textTitle}>
+                            <Text style={styles.textTitle} >
                               {item.lieu.nom + '(' + item.lieu.dep + ')'}
                             </Text>
                           </View>
@@ -229,16 +230,15 @@ function Home({navigation}) {
               </View>
             </View>
             <Text numberOfLines={1} style={styles.textsubtitre}>
-              SubTitle is a
-              boooooooooooooooooooooooooooooooooooooooooooooooooooooo
+              SubTitle is a boo
             </Text>
             <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                marginLeft: 5,
-                height: hp('30%'),
-                width: wp('60%'),
+                paddingLeft: 5,
+                height: responsiveScreenHeight(30),
+                width: responsiveScreenWidth(60),
               }}>
               <View style={{marginRight: 10, width: 290}}>
                 <Text numberOfLines={5} style={styles.textdescrip}>
@@ -298,7 +298,7 @@ function Home({navigation}) {
             </View>
             <Text numberOfLines={1} style={styles.textsubtitre}>
               SubTitle is a
-              boooooooooooooooooooooooooooooooooooooooooooooooooooooo
+              boo
             </Text>
             <View
               style={{

@@ -23,7 +23,7 @@ const DrawerNavigation = () => {
         drawerType={isLargeScreen ? 'permanent' : 'slide'}
         drawerStyle={{
           width: isLargeScreen ? null : '87%',
-          backgroundColor:'#fff'
+          backgroundColor: colorScheme === 'dark' ? '#111421' : '#fff',
         }}
         drawerContentOptions={{
           activeBackgroundColor:null,
