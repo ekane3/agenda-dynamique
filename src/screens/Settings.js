@@ -38,7 +38,7 @@ function Settings({ navigation }) {
             </View>
                <Switch
                 trackColor={{ false: colors.notification, true: colors.primary }}
-                thumbColor={isEnabled ? '#fff' : colors.background}
+                thumbColor={isEnabled ? '#fff' : '#fff'}
                 ios_backgroundColor="#3e3e3e"
                 onValueChange={toggleSwitch}
                 value={isEnabled}
