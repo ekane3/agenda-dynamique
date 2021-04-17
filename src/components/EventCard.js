@@ -3,9 +3,9 @@ import {View,TextInput, Text, StyleSheet,Button,ScrollView,Pressable} from 'reac
 import Icon from 'react-native-vector-icons/Ionicons';
 import Poppins from '../style/fonts';
 import Header from '../components/Header';
-import { useLinkTo,useTheme } from '@react-navigation/native';
+import { useLinkTo,useTheme,useNavigation } from '@react-navigation/native';
 
-function EventCard({navigation}){
+const EventCard = ({data}) =>{
   return (
     <Pressable style={styles.cardslist} onPress={() => navigation.navigate('EventDetails')} >
           <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>

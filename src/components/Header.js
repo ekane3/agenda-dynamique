@@ -8,6 +8,7 @@ const Header = ({title, isDrawer, rightIcon}) => {
   const navigation = useNavigation();
   const {colors} = useTheme();
   console.log(navigation.toggleDrawer ? true : false)
+  
   return (
     <View style={styles.container}>
       {isDrawer ? (
