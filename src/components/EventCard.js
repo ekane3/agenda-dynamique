@@ -4,8 +4,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Poppins from '../style/fonts';
 import Header from '../components/Header';
 import { useLinkTo,useTheme,useNavigation } from '@react-navigation/native';
+import style from '../style/Home';
 
 const EventCard = ({data}) =>{
+  
   return (
     <Pressable style={styles.cardslist} onPress={() => navigation.navigate('EventDetails')} >
           <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>

@@ -4,11 +4,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Poppins from '../style/fonts';
 import Header from '../components/Header';
 import { useLinkTo,useTheme } from '@react-navigation/native';
-import Map from './Map'
+import Map from './Map';
+import style from '../style/EventDetails';
 
 function EventDetails({ navigation }) {
   const linkTo = useLinkTo();
   const {colors} = useTheme();
+  const styles = style();
 
   return (
   <View style={{flex:1}}>
@@ -94,45 +96,9 @@ function EventDetails({ navigation }) {
   );
 }
 const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor: "#f1f1f1",
-    borderRadius: 30,
-  },
-  scrollview:{
-    padding: 20,   
-  },
-  cardslist:{
-    padding: 20,
-    marginVertical:15,
-    backgroundColor: "#FFFFFF",
-    borderRadius: 20,
-    borderColor:'#EF3E36',
-    shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 10 },
-    shadowRadius: 10,
-    shadowOpacity: 1.0,
-    elevation: 5,
-  },
-  textTitle: {
-    fontFamily: Poppins.Bold,
-    fontSize: 23,
-    alignItems: 'center',
-    color: '#636869',
-    justifyContent:'center',
-    marginTop: 7,
-  },
-  textsubtitre:{
-    fontFamily: Poppins.Regular,
-    fontSize: 16,
-    alignItems: 'center',
-    color: '#636869',
-    justifyContent:'center',
-    marginTop:-3,
-    marginLeft:5,
-    marginBottom:10,
-  
-  },
+
+
+ 
   textdescrip:{
     fontSize:12,
     color:'#636869',
