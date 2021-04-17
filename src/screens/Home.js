@@ -3,6 +3,11 @@ import {View,TextInput,FlatList, Text,TouchableOpacity, StyleSheet,Button,Scroll
 import Icon from 'react-native-vector-icons/Ionicons';
 import Poppins from '../style/fonts';
 import Header from '../components/Header';
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from 'react-native-responsive-dimensions';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useLinkTo,useTheme } from '@react-navigation/native';
 import Map from './Map';
@@ -232,8 +237,8 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowOpacity: 1.0,
     elevation: 5,
-    height: hp('25%'),
-    width: wp('90%'),
+    height: responsiveHeight(25),
+    width: responsiveWidth(90),
   },
   textTitle: {
     fontFamily: Poppins.Bold,
