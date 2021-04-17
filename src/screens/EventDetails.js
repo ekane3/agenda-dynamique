@@ -95,19 +95,6 @@ function EventDetails({ navigation }) {
     
   );
 }
-const styles = StyleSheet.create({
-
-
- 
-  textdescrip:{
-    fontSize:12,
-    color:'#636869',
-    marginLeft:5,
-    marginBottom:10,
-    textAlign:'justify'
-  },
-  
-});
 
 
 export default EventDetails;
