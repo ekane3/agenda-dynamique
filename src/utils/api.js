@@ -12,7 +12,7 @@ const ENDPOINT = 'https://www.externe.agenda-dynamique.com/externe';
  * @param {number} pageLength - La longeur d'une page (nombre d'évenements contenus dans une page).
  */
 
-const getEvent = async (
+const getEvent = async ({
   page = 0,
   lieu,
   groupe,
@@ -20,7 +20,7 @@ const getEvent = async (
   structure,
   date,
   pageLength = 20,
-) => {
+}) => {
   let finalUrl = ENDPOINT + '/flux.php?type=0';
   if (page && page >= 0) {
     finalUrl += `&pg=${page}`;

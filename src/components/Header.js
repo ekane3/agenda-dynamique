@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import {useNavigation,useTheme} from '@react-navigation/native';
+import {useNavigation, useTheme} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Poppins from '../style/fonts';
 import style from '../style/Header';
@@ -9,8 +9,7 @@ const Header = ({title, isDrawer, rightIcon}) => {
   const navigation = useNavigation();
   const {colors} = useTheme();
   const styles = style();
-  console.log(navigation.toggleDrawer ? true : false)
-  
+
   return (
     <View style={styles.container}>
       {isDrawer ? (
@@ -31,7 +30,6 @@ const Header = ({title, isDrawer, rightIcon}) => {
       <Text style={styles.text}>{title}</Text>
       {rightIcon || <View />}
     </View>
-    
   );
 };
 

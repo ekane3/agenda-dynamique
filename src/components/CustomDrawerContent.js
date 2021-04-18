@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ImageBackground, Image,Text} from 'react-native';
+import {View, ImageBackground, Image, Text} from 'react-native';
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -7,7 +7,6 @@ import {
 import {useTheme} from '@react-navigation/native';
 
 const CustomDrawerContent = ({props, colorScheme, Theme}) => {
-  console.log(colorScheme);
   const {colors} = useTheme();
   const {state, ...rest} = props;
   const newState = {...state};
@@ -32,9 +31,11 @@ const CustomDrawerContent = ({props, colorScheme, Theme}) => {
         style={{
           justifyContent: 'flex-end',
           alignItems: 'center',
-          marginTop:200,
-      }}>
-        <Text style={{ color: colors.notification }}>© Association Info Limousin 2021</Text>
+          marginTop: 200,
+        }}>
+        <Text style={{color: colors.notification}}>
+          © Association Info Limousin 2021
+        </Text>
       </View>
     </DrawerContentScrollView>
   );
