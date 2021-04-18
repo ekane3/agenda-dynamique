@@ -31,7 +31,7 @@ function Home({navigation}) {
   console.log(data);
   useEffect(() => {
     fetch(
-      'https://www.externe.agenda-dynamique.com/externe/flux.presponsiveScreenHeight?type=0&npp=1',
+      'https://www.externe.agenda-dynamique.com/externe/flux.php?type=0&npp=1',
     )
       .then(response => response.json())
       .then(json => setData(json))
@@ -78,7 +78,8 @@ function Home({navigation}) {
                     console.log({item});
                     return (
                       <Text>
-                        {item.id +
+                        {
+                        item.id +
                           '. ' +
                           item.titre +
                           '. ' +
