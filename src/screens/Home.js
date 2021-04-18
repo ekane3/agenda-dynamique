@@ -32,6 +32,7 @@ function Home({navigation}) {
   const [isLoading, setLoading] = useState(true);
   const [isRefreshing, setRefreshing] = useState(false);
   const [data, setData] = useState([]);
+  const [oldData, setOldData] = useState([]);
   const [meta, setMeta] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -41,66 +42,89 @@ function Home({navigation}) {
       const {meta, liste_evenement} = await api.getEvent({page: currentPage});
       setMeta(meta);
       setData(liste_evenement);
-      setRefreshing(false);
     } catch (e) {
       console.error(e);
+    } finally {
+      setRefreshing(false);
       setLoading(false);
     }
   };
 
-  console.log(data.length);
+  console.log(data);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   if (isLoading) {
-    //return <ActivityIndicator size={'large'} />;
     return (
-      <View style={{flex: 1}}>
-        <Header
-          isDrawer
-          title={'Accueil'}
-          rightIcon={
-            <Icon
-              name="map-outline"
-              size={40}
-              color={colors.primary}
-              onPress={() => navigation.navigate('Map')}
-            />
-          }
-        />
-        <View style={styles.container}>
-          <TextInput
-            style={styles.searchBar}
-            placeholder="Recherche"
-            keyboardType="default"
-            selectionColor={colors.primary}
-          />
-          <View style={styles.scrollview}>
-            <FlatList
-              refreshing={isRefreshing}
-              data={data}
-              onRefresh={() => fetchData()}
-              keyExtractor={item => String(item.id)}
-              extraData={data}
-              onEndReachedThreshold={distance => {
-                if (distance === 20) {
-                  setCurrentPage(prevCount => prevCount + 1);
-                  fetchData();
-                }
-              }}
-              renderItem={item => {
-                console.log(item);
-                return <EventCard data={item} />;
-              }}
-            />
-          </View>
-        </View>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <ActivityIndicator size={'large'} color={colors.primary} />
       </View>
     );
   }
-
+  return (
+    <View style={{flex: 1}}>
+      <Header
+        isDrawer
+        title={'Accueil'}
+        rightIcon={
+          <Icon
+            name="map-outline"
+            size={40}
+            color={colors.primary}
+            onPress={() => navigation.navigate('Map')}
+          />
+        }
+      />
+      <View style={styles.container}>
+        <TextInput
+          style={styles.searchBar}
+          onSubmitEditing={event =>
+            setData(prevData =>
+              prevData.filter(
+                item =>
+                  item.titre.includes(event.nativeEvent.text) ||
+                  item.desc.includes(event.nativeEvent.text),
+              ),
+            )
+          }
+          placeholder="Recherche"
+          keyboardType="default"
+          selectionColor={colors.primary}
+        />
+        <View style={styles.scrollview}>
+          <FlatList
+            ListEmptyComponent={() => {
+              return (
+                <Pressable
+                  onPress={() => fetchData()}
+                  style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Text>Recharger des données</Text>
+                </Pressable>
+              );
+            }}
+            refreshing={isRefreshing}
+            data={data}
+            onRefresh={() => fetchData()}
+            keyExtractor={item => String(item.id)}
+            extraData={data}
+            onEndReachedThreshold={distance => {
+              if (distance === 20) {
+                setCurrentPage(prevCount => prevCount + 1);
+                fetchData();
+              }
+            }}
+            renderItem={item => <EventCard data={item} />}
+          />
+        </View>
+      </View>
+    </View>
+  );
 }
 
 export default Home;

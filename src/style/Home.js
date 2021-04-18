@@ -7,8 +7,8 @@ import {
   responsiveHeight,
   responsiveScreenWidth,
   responsiveScreenHeight,
-  responsiveScreenFontSize
-} from "react-native-responsive-dimensions";
+  responsiveScreenFontSize,
+} from 'react-native-responsive-dimensions';
 import Poppins from './fonts';
 import {useTheme} from '@react-navigation/native';
 
@@ -39,6 +39,7 @@ const styles = () => {
       shadowRadius: 10,
       shadowOpacity: 1.0,
       elevation: 5,
+      color: colors.text,
     },
     cardslist: {
       padding: 20,
