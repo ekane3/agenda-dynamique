@@ -50,8 +50,6 @@ function Home({navigation}) {
     }
   };
 
-  console.log(data);
-
   useEffect(() => {
     fetchData();
   }, []);
