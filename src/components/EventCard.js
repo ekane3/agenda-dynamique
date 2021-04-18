@@ -1,30 +1,32 @@
 import React from 'react';
-import {
-  View,
-  TextInput,
-  Text,
-  StyleSheet,
-  Button,
-  ScrollView,
-  Pressable,
-} from 'react-native';
+import {View, Text, Pressable, Linking} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Poppins from '../style/fonts';
-import Header from '../components/Header';
-import {useLinkTo, useTheme, useNavigation} from '@react-navigation/native';
+import {useTheme, useNavigation} from '@react-navigation/native';
 import style from '../style/Home';
 
 const EventCard = ({data}) => {
-  console.log(data);
+  const styles = style();
+  const {colors} = useTheme();
+  const navigation = useNavigation();
+  //Rename data
+  data = data.item;
+  //Retrieve lieu name and department num from lieu array
+  const lieu = data.lieu[0];
+  //Slice date for better render
+  const date = String(data.date_format_fr).split(' ');
+
   return (
     <Pressable
       style={styles.cardslist}
-      onPress={() => navigation.navigate('EventDetails')}>
+      onPress={() => navigation.navigate('EventDetails', {data: data})}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <View style={{flexDirection: 'row'}}>
           <Icon name="location-sharp" size={25} color={colors.primary} />
           <View style={{marginLeft: 10, marginTop: -10}}>
-            <Text style={styles.textTitle}>Title(19)</Text>
+            <Text style={styles.textTitle}>
+              {lieu.nom.slice(0, 13)}({lieu.dep})
+            </Text>
           </View>
         </View>
         <View
@@ -35,7 +37,7 @@ const EventCard = ({data}) => {
           }}>
           <Text
             style={{fontFamily: Poppins.Bold, fontSize: 23, color: '#EF3E36'}}>
-            29
+            {date[1]}
           </Text>
           <Text
             style={{
@@ -44,12 +46,14 @@ const EventCard = ({data}) => {
               color: '#636869',
               marginTop: -15,
             }}>
-            Mars
+            {date[2].length > 5
+              ? date[2].charAt(0).toUpperCase() + date[2].slice(1, 3)+'.'
+              : date[2].charAt(0).toUpperCase() + date[2].slice(1)}
           </Text>
         </View>
       </View>
       <Text numberOfLines={1} style={styles.textsubtitre}>
-        SubTitle is a boooooooooooooooooooooooooooooooooooooooooooooooooooooo
+        {data.titre}
       </Text>
       <View
         style={{
@@ -57,13 +61,9 @@ const EventCard = ({data}) => {
           justifyContent: 'space-between',
           marginLeft: 5,
         }}>
-        <View style={{marginRight: 10, width: 290}}>
+        <View style={{paddingRight: 20, width: 280}}>
           <Text numberOfLines={5} style={styles.textdescrip}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-            non proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum.
+            {data.desc}
           </Text>
         </View>
         <View
@@ -73,76 +73,22 @@ const EventCard = ({data}) => {
             alignItems: 'flex-end',
             justifyContent: 'space-around',
           }}>
-          <Icon name="call" size={30} color={colors.primary} />
-          <Icon name="globe-sharp" size={30} color={colors.primary} />
+          <Icon
+            name="call"
+            size={30}
+            color={colors.primary}
+            onPress={() => Linking.openURL('tel:' + data.contact.tel)}
+          />
+          <Icon
+            name="globe-sharp"
+            size={30}
+            color={colors.primary}
+            onPress={() => Linking.openURL(data.contact.site)}
+          />
         </View>
       </View>
     </Pressable>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f2f2f2',
-    borderRadius: 25,
-  },
-  scrollview: {
-    padding: 20,
-  },
-  searchBar: {
-    fontFamily: Poppins.Medium,
-    fontSize: 15,
-    height: 55,
-    marginTop: -10,
-    textAlign: 'center',
-    alignContent: 'center',
-    marginHorizontal: 20,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 10,
-    borderColor: '#EF3E36',
-    shadowColor: '#000000',
-    shadowOffset: {width: 0, height: 10},
-    shadowRadius: 10,
-    shadowOpacity: 1.0,
-    elevation: 5,
-  },
-  cardslist: {
-    padding: 20,
-    marginVertical: 15,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 20,
-    borderColor: '#EF3E36',
-    shadowColor: '#000000',
-    shadowOffset: {width: 0, height: 10},
-    shadowRadius: 10,
-    shadowOpacity: 1.0,
-    elevation: 5,
-  },
-  textTitle: {
-    fontFamily: Poppins.Bold,
-    fontSize: 23,
-    alignItems: 'center',
-    color: '#636869',
-    justifyContent: 'center',
-    marginTop: 7,
-  },
-  textsubtitre: {
-    fontFamily: Poppins.Regular,
-    fontSize: 16,
-    alignItems: 'center',
-    color: '#636869',
-    width: 200,
-    justifyContent: 'center',
-    marginTop: -30,
-    marginLeft: 5,
-    marginBottom: 10,
-  },
-  textdescrip: {
-    fontSize: 12,
-    color: '#636869',
-    textAlign: 'justify',
-  },
-});
 
 export default EventCard;

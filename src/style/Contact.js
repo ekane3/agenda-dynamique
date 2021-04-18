@@ -43,7 +43,7 @@ const styles = () => {
       fontFamily: Poppins.Bold,
       fontSize: 18,
       alignItems: 'center',
-      color: colors.notification,
+      color: colors.headerTitle,
       justifyContent: 'center',
       marginTop: 7,
     },

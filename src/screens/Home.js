@@ -55,52 +55,52 @@ function Home({navigation}) {
   }, []);
 
   if (isLoading) {
-    return <ActivityIndicator size={'large'} />;
-  }
-
-  return (
-    <View style={{flex: 1}}>
-      <Header
-        isDrawer
-        title={'Accueil'}
-        rightIcon={
-          <Icon
-            name="map-outline"
-            size={40}
-            color={colors.primary}
-            onPress={() => navigation.navigate('Map')}
-          />
-        }
-      />
-      <View style={styles.container}>
-        <TextInput
-          style={styles.searchBar}
-          placeholder="Recherche"
-          keyboardType="default"
-          selectionColor={colors.primary}
+    //return <ActivityIndicator size={'large'} />;
+    return (
+      <View style={{flex: 1}}>
+        <Header
+          isDrawer
+          title={'Accueil'}
+          rightIcon={
+            <Icon
+              name="map-outline"
+              size={40}
+              color={colors.primary}
+              onPress={() => navigation.navigate('Map')}
+            />
+          }
         />
-        <View style={styles.scrollview}>
-          <FlatList
-            refreshing={isRefreshing}
-            data={data}
-            onRefresh={() => fetchData()}
-            keyExtractor={item => String(item.id)}
-            extraData={data}
-            onEndReachedThreshold={distance => {
-              if (distance === 20) {
-                setCurrentPage(prevCount => prevCount + 1);
-                fetchData();
-              }
-            }}
-            renderItem={item => {
-              console.log(item);
-              return <EventCard data={item} />;
-            }}
+        <View style={styles.container}>
+          <TextInput
+            style={styles.searchBar}
+            placeholder="Recherche"
+            keyboardType="default"
+            selectionColor={colors.primary}
           />
+          <View style={styles.scrollview}>
+            <FlatList
+              refreshing={isRefreshing}
+              data={data}
+              onRefresh={() => fetchData()}
+              keyExtractor={item => String(item.id)}
+              extraData={data}
+              onEndReachedThreshold={distance => {
+                if (distance === 20) {
+                  setCurrentPage(prevCount => prevCount + 1);
+                  fetchData();
+                }
+              }}
+              renderItem={item => {
+                console.log(item);
+                return <EventCard data={item} />;
+              }}
+            />
+          </View>
         </View>
       </View>
-    </View>
-  );
+    );
+  }
+
 }
 
 export default Home;
