@@ -58,6 +58,32 @@ function Settings({ navigation }) {
               />
           </View>
         </View>
+        <Text style={styles.textTitle}>Choisir catégorie</Text>
+        <View style={styles.cardslist}>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{marginLeft:10,marginTop:-5,}}>
+              <Text style={styles.textTitle2}>Type de catégorie</Text>
+            </View>
+            <Icon
+                name="filter"
+                size={25}
+                color={colors.primary}
+              />
+          </View>
+        </View>
+         <Text style={styles.textTitle}>Une date</Text>
+        <View style={styles.cardslist}>
+          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{marginLeft:10,marginTop:-5,}}>
+              <Text style={styles.textTitle2}>Selectionnez une date</Text>
+            </View>
+            <Icon
+                name="calendar"
+                size={25}
+                color={colors.primary}
+              />
+          </View>
+        </View>
         <Text style={styles.textTitle}>Définir thème</Text>
         <View style={styles.cardslist}>
           <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
@@ -71,19 +97,7 @@ function Settings({ navigation }) {
               />
           </View>
         </View>
-        <Text style={styles.textTitle}>Une date</Text>
-        <View style={styles.cardslist}>
-          <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
-            <View style={{marginLeft:10,marginTop:-5,}}>
-              <Text style={styles.textTitle2}>Selectionnez une date</Text>
-            </View>
-            <Icon
-                name="calendar"
-                size={25}
-                color={colors.primary}
-              />
-          </View>
-        </View>
+       
          
         <View style={{flexDirection:'column',marginVertical:20}}>
             <TouchableOpacity style={styles.button} >
