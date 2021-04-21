@@ -7,8 +7,8 @@ const ENDPOINT = 'https://www.externe.agenda-dynamique.com/externe';
  * @param {string} lieu - identifiant du lieu sur lequel filtrer.
  * @param {string} groupe - identifiant du groupe de lieu sur lequel filtrer.
  * @param {string} theme - identifiant du thème sur lequel filtrer.
- * @param {string} structure - identifiant de la structure dont on veut les événements.
- * @param {string} date - format YYYY-MM-DD. date à partir de laquelle les événement sont récupéré.
+ * @param {string} structure - identifiant de la structure dont on veut les évènements.
+ * @param {string} date - format YYYY-MM-DD. date à partir de laquelle les événement sont récupérés.
  * @param {number} pageLength - La longeur d'une page (nombre d'évenements contenus dans une page).
  */
 

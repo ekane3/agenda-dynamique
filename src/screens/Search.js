@@ -43,6 +43,19 @@ function Search({navigation}) {
     }
   };
 
+  const fetchCategoryData = async () => {
+    try {
+      const {meta,liste_evenement } = await api.getEvent({page:currentPage});
+      setMeta(meta);
+      setData(liste_evenement);
+    } catch (error) {
+      console.error(error);
+    }finally{
+      setRefreshing(false);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -77,7 +90,7 @@ function Search({navigation}) {
               prevData.filter(
                 item =>
                   item.titre.includes(event.nativeEvent.text) ||
-                  item.desc.includes(event.nativeEvent.text),
+                  item.desc.includes(event.nativeEvent.text) ,
               ),
             )
           }
@@ -89,69 +102,106 @@ function Search({navigation}) {
           style={styles.scrollHorizontal}
           showsHorizontalScrollIndicator={false}
           horizontal>
-          <View
+           <Pressable
             style={styles.eventList}
-            onPress={() => navigation.navigate('EventDetails')}>
+            onPress={() =>  setData(prevData =>
+              prevData.filter(
+                item =>
+                  item.categorie.groupe_nom.includes("Atelier, Stage, Santé, Jeux, Dédicace, Café philo, Formation"),
+              ),
+            )}>
+            <Image
+              style={styles.eventImage}
+              source={require('../../assets/images/atelier_ico.png')}
+            />
+            <Text style={styles.textTitleEvent}>Atelier</Text>
+          </Pressable>
+          <Pressable
+            style={styles.eventList}
+            onPress={() =>  setData(prevData =>
+              prevData.filter(
+                item =>
+                  item.categorie.groupe_nom.includes("Marché, Foire, Brocante, Salon"),
+              ),
+            )}>
+            <Image
+              style={styles.eventImage}
+              source={require('../../assets/images/foire_ico.png')}
+            />
+            <Text style={styles.textTitleEvent}>Marché</Text>
+          </Pressable>
+           <Pressable
+            style={styles.eventList}
+            onPress={() =>  setData(prevData =>
+              prevData.filter(
+                item =>
+                  item.categorie.groupe_nom.includes("Nature, Balade, Etude, Jardin"),
+              ),
+            )}>
             <Image
               style={styles.eventImage}
               source={require('../../assets/images/musique.png')}
             />
-            <Text style={styles.textTitleEvent}>Musique</Text>
-          </View>
-          <View
+            <Text style={styles.textTitleEvent}>Balade</Text>
+          </Pressable>
+          <Pressable
             style={styles.eventList}
-            onPress={() => navigation.navigate('EventDetails')}>
+            onPress={() =>  setData(prevData =>
+              prevData.filter(
+                item =>
+                  item.categorie.groupe_nom.includes("Réunion, Assemblée générale, Conférence"),
+              ),
+            )}>
             <Image
               style={styles.eventImage}
-              source={require('../../assets/images/musique.png')}
+              source={require('../../assets/images/conference_ico.png')}
             />
-            <Text style={styles.textTitleEvent}>Musée</Text>
-          </View>
-          <View
+            <Text style={styles.textTitleEvent}>Réunion</Text>
+          </Pressable>
+          <Pressable
             style={styles.eventList}
-            onPress={() => navigation.navigate('EventDetails')}>
+            onPress={() =>  setData(prevData =>
+              prevData.filter(
+                item =>
+                  item.categorie.groupe_nom.includes("Spectacle, Concert, Cinéma, Théâtre"),
+              ),
+            )}>
             <Image
               style={styles.eventImage}
-              source={require('../../assets/images/musique.png')}
+              source={require('../../assets/images/spectacle_ico.png')}
             />
-            <Text style={styles.textTitleEvent}>Musique</Text>
-          </View>
-          <View
+            <Text style={styles.textTitleEvent}>Concert</Text>
+          </Pressable>
+          <Pressable
             style={styles.eventList}
-            onPress={() => navigation.navigate('EventDetails')}>
+            onPress={() =>  setData(prevData =>
+              prevData.filter(
+                item =>
+                  item.categorie.groupe_nom.includes("Sport, Compétition, Gym, Randonnée, Pêche"),
+              ),
+            )}>
             <Image
               style={styles.eventImage}
-              source={require('../../assets/images/musique.png')}
+              source={require('../../assets/images/sport_ico.png')}
             />
-            <Text style={styles.textTitleEvent}>Musique</Text>
-          </View>
-          <View
+            <Text style={styles.textTitleEvent}>Sport</Text>
+          </Pressable>
+          <Pressable
             style={styles.eventList}
-            onPress={() => navigation.navigate('EventDetails')}>
+            onPress={() =>  setData(prevData =>
+              prevData.filter(
+                item =>
+                  item.categorie.groupe_nom.includes("Visite, Exposition, Découverte, Présentation, Concours"),
+              ),
+            )}
+            >
             <Image
               style={styles.eventImage}
-              source={require('../../assets/images/musique.png')}
+              source={require('../../assets/images/visite_ico.png')}
             />
-            <Text style={styles.textTitleEvent}>Musique</Text>
-          </View>
-          <View
-            style={styles.eventList}
-            onPress={() => navigation.navigate('EventDetails')}>
-            <Image
-              style={styles.eventImage}
-              source={require('../../assets/images/musique.png')}
-            />
-            <Text style={styles.textTitleEvent}>Musique</Text>
-          </View>
-          <View
-            style={styles.eventList}
-            onPress={() => navigation.navigate('EventDetails')}>
-            <Image
-              style={styles.eventImage}
-              source={require('../../assets/images/musique.png')}
-            />
-            <Text style={styles.textTitleEvent}>Musique</Text>
-          </View>
+            <Text style={styles.textTitleEvent}>Visite</Text>
+          </Pressable>
+
         </ScrollView>
         <View style={styles.scrollview}>
           <FlatList

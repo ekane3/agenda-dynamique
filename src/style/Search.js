@@ -74,16 +74,41 @@ const styles = () => {
       elevation: 5,
       height:125,
       justifyContent: 'center',
+      alignItems: 'center',
       width:120,
-      marginRight:10 
+      marginRight:10
     },
     eventImage:{
       resizeMode: 'contain', width: 60,marginLeft: 8,
     },
     textTitleEvent: {
       fontFamily: Poppins.Bold,
-      fontSize: 18,
-      color: '#636869',
+      fontSize: 16,
+      color: colors.headerTitle,
+      marginTop: 7,
+    },
+     eventListPressed:{
+      padding: 20,
+      flexDirection: 'column',
+      marginVertical:15,
+      backgroundColor: colors.primary,
+      borderRadius: 20,
+      borderColor:'#EF3E36',
+      shadowColor: colors.shadowColor,
+      shadowOffset: { width: 0, height: 10 },
+      shadowRadius: 10,
+      shadowOpacity: 1.0,
+      elevation: 5,
+      height:125,
+      justifyContent: 'center',
+      alignItems: 'center',
+      width:120,
+      marginRight:10 
+    },
+    textTitleEventPressed: {
+      fontFamily: Poppins.Bold,
+      fontSize: 16,
+      color: '#fff',
       marginTop: 7,
     },
   
