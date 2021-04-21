@@ -102,7 +102,7 @@ function Home({navigation}) {
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}>
-                  <Text>Recharger des données</Text>
+                  <Text style={{color:'#EF3E36',fontsize:18}}>Recharger des données</Text>
                 </Pressable>
               );
             }}
