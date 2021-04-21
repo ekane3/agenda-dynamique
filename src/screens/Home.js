@@ -4,30 +4,18 @@ import {
   TextInput,
   FlatList,
   Text,
-  TouchableOpacity,
-  StyleSheet,
-  Button,
-  ScrollView,
   Pressable,
   ActivityIndicator,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Poppins from '../style/fonts';
 import Header from '../components/Header';
 import EventCard from '../components/EventCard';
-import {
-  responsiveScreenWidth,
-  responsiveScreenHeight,
-  responsiveScreenFontSize,
-} from 'react-native-responsive-dimensions';
-import {useLinkTo, useTheme} from '@react-navigation/native';
-import Map from './Map';
+import {useTheme} from '@react-navigation/native';
 import style from '../style/Home';
 import api from '../utils/api';
 
 function Home({navigation}) {
   const styles = style();
-  const linkTo = useLinkTo();
   const {colors} = useTheme();
   const [isLoading, setLoading] = useState(true);
   const [isRefreshing, setRefreshing] = useState(false);
@@ -102,7 +90,9 @@ function Home({navigation}) {
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}>
-                  <Text style={{color:'#EF3E36',fontsize:18}}>Recharger des données</Text>
+                  <Text style={{color: '#EF3E36', fontSize: 18}}>
+                    Recharger des données
+                  </Text>
                 </Pressable>
               );
             }}

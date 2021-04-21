@@ -22,10 +22,12 @@ const styles = () => {
     },
     scrollview: {
       padding: 20,
+      flex:3,
     },
     scrollHorizontal:{
       paddingLeft: 20,
       height: 205,
+      flex:2,
     },
     searchBar: {
       fontFamily: Poppins.Medium,
