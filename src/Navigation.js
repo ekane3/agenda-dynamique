@@ -1,22 +1,35 @@
-import React from 'react';
-import { useColorScheme, useWindowDimensions, ImageBackground, Image } from 'react-native';
+import React, {useEffect} from 'react';
+import {
+  useColorScheme,
+  useWindowDimensions,
+  ImageBackground,
+  Image,
+} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {useSelector, useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Contact, EventDetails, Home, Map, Settings, Search} from './screens';
 import {CustomDrawerContent} from './components';
 import * as Theme from './style/theme';
 import Poppins from './style/fonts';
+import {actions} from './store';
 
 const {Navigator, Screen} = createDrawerNavigator();
 
 const DrawerNavigation = () => {
+  const {darkTheme} = useSelector(state => state.settings);
+  const {setDarkTheme} = actions.settings;
   const colorScheme = useColorScheme();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setDarkTheme(colorScheme === 'dark'));
+  }, []);
   const dimensions = useWindowDimensions();
   const isLargeScreen = dimensions.width >= 768;
   return (
     <NavigationContainer
-      theme={colorScheme === 'dark' ? Theme.Dark : Theme.Light}
+      theme={darkTheme ? Theme.Dark : Theme.Light}
       backBehavior="none">
       <Navigator
         initialRouteName="Home"
@@ -26,7 +39,7 @@ const DrawerNavigation = () => {
           backgroundColor: colorScheme === 'dark' ? '#111421' : '#fff',
         }}
         drawerContentOptions={{
-          activeBackgroundColor:null,
+          activeBackgroundColor: null,
           labelStyle: {
             fontFamily: Poppins.SemiBold,
             fontSize: 20,
@@ -49,16 +62,16 @@ const DrawerNavigation = () => {
           }}
           component={Home}
         />
-       
-        <Screen 
-          name="Map" 
+
+        <Screen
+          name="Map"
           options={{
             drawerLabel: 'Carte',
             drawerIcon: ({focused, color, size}) => (
               <Icon name="map" size={size} color={color} />
             ),
           }}
-          component={Map} 
+          component={Map}
         />
         <Screen
           name="Search"
@@ -90,16 +103,16 @@ const DrawerNavigation = () => {
           }}
           component={Settings}
         />
-         <Screen 
-          name="EventDetails" 
-          component={EventDetails} 
+        <Screen
+          name="EventDetails"
+          component={EventDetails}
           options={{
             drawerLabel: 'Accueil',
             drawerIcon: ({focused, color, size}) => (
               <Icon name="home" size={size} color={color} />
             ),
           }}
-          />
+        />
       </Navigator>
     </NavigationContainer>
   );
