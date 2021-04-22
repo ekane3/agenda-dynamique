@@ -24,6 +24,8 @@ function EventDetails({route}) {
   const lieu = data.lieu[0];
   //Slice date for better render
   const date = String(data.date_format_fr).split(' ');
+  //Source de la structure de l'évènement
+  const structure = data.contact.structure.nom;
 
   return (
     <View style={{flex: 1}}>
@@ -86,6 +88,7 @@ function EventDetails({route}) {
                 {data.desc}
               </Text>
             </View>
+            <Text style={styles.sourcetext} numberOfLines={2}>{structure}</Text>
             <View
               style={{
                 flexDirection: 'row',

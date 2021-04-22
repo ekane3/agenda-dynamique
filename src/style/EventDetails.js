@@ -56,6 +56,13 @@ const styles = () => {
       color: colors.text,
       textAlign: 'justify',
     },
+    sourcetext:{
+      fontSize:12,
+      color: colors.text,
+      textAlign:'justify',
+      fontStyle: 'italic',
+      alignSelf:'flex-end',
+    }
   });
 };
 

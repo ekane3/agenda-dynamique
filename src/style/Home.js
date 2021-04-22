@@ -52,7 +52,7 @@ const styles = () => {
       shadowRadius: 10,
       shadowOpacity: 1.0,
       elevation: 5,
-      height: responsiveScreenHeight(25),
+      height: responsiveScreenHeight(28),
       width: responsiveScreenWidth(90),
     },
     textTitle: {

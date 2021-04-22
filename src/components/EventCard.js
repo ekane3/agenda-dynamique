@@ -52,7 +52,7 @@ const EventCard = ({data}) => {
           </Text>
         </View>
       </View>
-      <Text numberOfLines={1} style={styles.textsubtitre}>
+      <Text numberOfLines={2} style={styles.textsubtitre}>
         {data.titre}
       </Text>
       <View
