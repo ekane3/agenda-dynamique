@@ -9,6 +9,7 @@ import {
   Image,
   TouchableOpacity,
   Switch,
+  PermissionsAndroid,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useSelector, useDispatch} from 'react-redux';
@@ -23,12 +24,38 @@ function Settings({navigation}) {
   const {colors} = useTheme();
   const styles = style();
   const dispatch = useDispatch();
-  const {setDarkTheme, setShowCommunes} = actions.settings;
-  const {darkTheme, showCommunes, lieu, theme, geolocation} = useSelector(
-    state => state.settings,
-  );
+  const {setDarkTheme, setShowCommunes, setUseGeoLocation} = actions.settings;
+  const {
+    darkTheme,
+    showCommunes,
+    lieu,
+    theme,
+    geolocation,
+    groupeLieu,
+    useGeoLocation,
+  } = useSelector(state => state.settings);
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  const allowGeolocation = async () => {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      {
+        title: 'Agenda dynamique voudrait acceder à votre géolocation',
+        message:
+          'Agenda dynamique voudrait acceder à votre géolocation pour vous proposer des evenements près de chez vous',
+        buttonNeutral: 'Plus tard',
+        buttonNegative: 'Annuler',
+        buttonPositive: 'OK',
+      },
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log('granted');
+      dispatch(setUseGeoLocation(true));
+    } else {
+      dispatch(setUseGeoLocation(false));
+    }
+  };
 
   return (
     <View style={{flex: 1}}>
@@ -70,10 +97,31 @@ function Settings({navigation}) {
               </View>
               <Switch
                 trackColor={{false: colors.notification, true: colors.primary}}
-                thumbColor={showCommunes ? '#fff' : '#fff'}
+                thumbColor={useGeoLocation ? '#fff' : '#fff'}
                 ios_backgroundColor="#3e3e3e"
                 onValueChange={() => dispatch(setShowCommunes(!showCommunes))}
                 value={showCommunes}
+              />
+            </View>
+          </View>
+          <View style={styles.cardslist}>
+            <View
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              <View style={{marginLeft: 10, marginTop: -5}}>
+                <Text style={styles.textTitle2}>
+                  Utiliser la geolocalisation
+                </Text>
+              </View>
+              <Switch
+                trackColor={{false: colors.notification, true: colors.primary}}
+                thumbColor={showCommunes ? '#fff' : '#fff'}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={() =>
+                  useGeoLocation
+                    ? dispatch(setUseGeoLocation(false))
+                    : allowGeolocation()
+                }
+                value={useGeoLocation}
               />
             </View>
           </View>
