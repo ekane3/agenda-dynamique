@@ -52,7 +52,7 @@ const EventCard = ({data}) => {
           </Text>
         </View>
       </View>
-      <Text numberOfLines={1} style={styles.textsubtitre}>
+      <Text numberOfLines={2} style={styles.textsubtitre}>
         {data.titre}
       </Text>
       <View
@@ -62,7 +62,7 @@ const EventCard = ({data}) => {
           marginLeft: 5,
         }}>
         <View style={{paddingRight: 20, width: 280}}>
-          <Text numberOfLines={5} style={styles.textdescrip}>
+          <Text numberOfLines={4} style={styles.textdescrip}>
             {data.desc}
           </Text>
         </View>

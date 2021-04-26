@@ -56,6 +56,14 @@ const styles = () => {
       color: colors.text,
       textAlign: 'justify',
     },
+    textdescripStructure: {
+      fontSize: 12,
+      marginLeft:5,
+      marginBottom:10,
+      color: colors.text,
+      alignSelf: 'flex-end',
+      fontStyle:'italic',
+    },
   });
 };
 
